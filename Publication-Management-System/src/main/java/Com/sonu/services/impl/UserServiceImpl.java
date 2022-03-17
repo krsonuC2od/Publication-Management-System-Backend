@@ -1,10 +1,14 @@
 package Com.sonu.services.impl;
 
+
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import Com.sonu.exception.ResourceNotFoundException;
 import Com.sonu.model.User;
 import Com.sonu.model.UserRole;
 import Com.sonu.repo.RoleRepository;
@@ -54,5 +58,45 @@ public class UserServiceImpl implements UserService {
 		this.userRepository.deleteById(userId);
 		
 	}
+
+	@Override
+	public User updateUser(User user, Long userId) {
+		User existingUser = userRepository.getById(userId);
+				//.orElseThrow( ()->
+		//new ResourceNotFoundException("User", "Id", id)	);
+			
+		
+		existingUser.setFirstname(user.getFirstname());
+		existingUser.setLastname(user.getLastname());
+		existingUser.setUsername(user.getUsername());
+		existingUser.setEmail(user.getEmail());
+		existingUser.setPassword(user.getPassword());
+		existingUser.setPhone(user.getPhone());
+		existingUser.setProfile(user.getProfile());
+		userRepository.save(existingUser);
+		
+		return existingUser;
+	}
+
+	@Override
+	public User saveUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		
+		return userRepository.findAll();
+	}
+
+	
+
+	
+	
+
+	
+	
+	
 
 }

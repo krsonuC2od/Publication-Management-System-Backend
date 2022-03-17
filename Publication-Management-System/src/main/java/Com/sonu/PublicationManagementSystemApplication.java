@@ -22,6 +22,7 @@ public class PublicationManagementSystemApplication  implements CommandLineRunne
 	private UserService userService;
 
     
+
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PublicationManagementSystemApplication.class, args);

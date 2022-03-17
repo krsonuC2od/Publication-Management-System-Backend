@@ -1,5 +1,6 @@
 package Com.sonu.model;
 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,10 +14,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JacksonStdImpl;
+
+
+
 
 @Entity
 @Table(name ="users")
-public class User {
+public class User  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private  Long id;
@@ -30,6 +35,8 @@ public class User {
 	private boolean enabled = true;
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user" )
 	@JsonIgnore
+	 
+	
 	private Set<UserRole> userRoles=new HashSet<>();
 	
 	
