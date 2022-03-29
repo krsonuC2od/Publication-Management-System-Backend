@@ -1,30 +1,19 @@
 package Com.sonu;
-
-
 import java.util.HashSet;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import Com.sonu.model.Role;
 import Com.sonu.model.User;
 import Com.sonu.model.UserRole;
 import Com.sonu.services.UserService;
-
-
-
 @SpringBootApplication
 public class PublicationManagementSystemApplication  implements CommandLineRunner {
     @Autowired
 	private UserService userService;
-
-    
-
-	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		SpringApplication.run(PublicationManagementSystemApplication.class, args);
 	}
 
